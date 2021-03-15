@@ -7,6 +7,7 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 import { FilePond, File, registerPlugin } from 'react-filepond'
 import TextField from "@material-ui/core/TextField"
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import './Form.css'
 
 // Import FilePond styles
@@ -43,14 +44,11 @@ export const Form = () => {
         e.preventDefault()
         console.log(image)
 
-        const formToSubmit=new FormData()
-        formToSubmit.append("file",image.file)
-        formToSubmit.append("name",image.name)
-        dispatch(addTask(formToSubmit))
-        // axios.post("http://localhost:5000/api/addImage",formToSubmit).then(response =>{
-        //     console.log("reponse is back",response)
-        // })
-
+        // const formToSubmit=new FormData()
+        // formToSubmit.append("file",image.file)
+        // formToSubmit.append("name",image.name)
+        // dispatch(addTask(formToSubmit))
+        
     }
     
     return (
@@ -76,7 +74,9 @@ export const Form = () => {
                     variant="outlined"
                     className="form-control"
                     label="description" 
-                    name="description"/>
+                    name="description"
+                     onChange={(e)=> setImage({...image,description:e.target.value})}
+                    />
                  </div>
                   <div className="item">
                        
@@ -91,7 +91,9 @@ export const Form = () => {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        onChange={(e)=>setImage({...image,date:e.target.value})}
                       />
+
                   </div>
 
               <div className="item">

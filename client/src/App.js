@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import {Form} from "./component/Form/Form"
 import {useDispatch} from "react-redux"
 import {allTasks} from "./redux/actions/taskActions"
@@ -10,6 +10,7 @@ import axios from 'axios'
 function App() {
 
   const dispatch = useDispatch()
+   const [currentId, setcurrentId] = useState(null)
   const fecththem=async()=>{
     const {data}= await axios.get("http://localhost:5000/api/getImage")
     
@@ -23,11 +24,11 @@ function App() {
       <div className="row">
          <div className="col-8">
 
-           <Tasks/>
+           <Tasks currentId={currentId} setcurrentId={currentId}/>
          </div>
            
          <div className="col-4">
-         <Form/>
+         <Form currentId={currentId}/>
          </div>
 
       </div>

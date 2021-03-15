@@ -30,7 +30,7 @@ export const Task = ({image}) => {
             
             <img src={imageFile} alt="this is image" className="task__img"/>
             <div>
-            <label>image {name}</label>
+            <h4>{name}</h4>
             </div>
             
         </div>

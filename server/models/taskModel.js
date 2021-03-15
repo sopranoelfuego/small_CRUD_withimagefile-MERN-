@@ -3,7 +3,12 @@ const mongoose=require("mongoose")
 
 const imageSchema=new mongoose.Schema({
     name:String,
-    file:{
+    /*
+    */
+   description:String,
+   date:Date,
+ 
+   file:{
         data:Buffer,
         contentType:String
     }

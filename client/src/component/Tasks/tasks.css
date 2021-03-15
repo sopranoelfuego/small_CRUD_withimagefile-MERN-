@@ -1,0 +1,15 @@
+.tasks__container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: stretch;
+    box-sizing: border-box;
+}
+.circular {
+    position: absolute;
+    top:50%;
+    right: 50%;
+    
+    
+}

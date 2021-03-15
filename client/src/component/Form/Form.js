@@ -44,10 +44,12 @@ export const Form = () => {
         e.preventDefault()
         console.log(image)
 
-        // const formToSubmit=new FormData()
-        // formToSubmit.append("file",image.file)
-        // formToSubmit.append("name",image.name)
-        // dispatch(addTask(formToSubmit))
+        const formToSubmit=new FormData()
+        formToSubmit.append("file",image.file)
+        formToSubmit.append("name",image.name)
+         formToSubmit.append("description",image.description)
+         formToSubmit.append("date",image.date)
+        dispatch(addTask(formToSubmit))
         
     }
     

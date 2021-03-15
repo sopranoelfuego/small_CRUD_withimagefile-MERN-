@@ -64,6 +64,28 @@ const upload=multer({storage})
           res.send(doc)        
       })
     })
+
+    app.patch('/api/:id',upload.single('file'),(req,res)=>{
+          const {id:_id}=req.params
+          if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).send("error no post with that id")
+          const {name,date,description}=req.body
+          
+          let file={
+            data:"",
+            contentType:""
+          }
+          file.data=fs.readFileSync(req.file.path)
+          file.contentType="image/jpeg"
+          console.log("valeu for update",{name,date,description,file})
+
+
+          
+          try {
+            
+          } catch (error) {
+            
+          }
+    })
   
 
 

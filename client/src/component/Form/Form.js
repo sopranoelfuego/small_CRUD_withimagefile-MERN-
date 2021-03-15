@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react'
 import axios from "axios"
 import {useDispatch} from "react-redux"
-import {addTask} from "../../redux/actions/taskActions"
+import {addTask,updateTask} from "../../redux/actions/taskActions"
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
@@ -25,7 +25,7 @@ import 'filepond/dist/filepond.min.css'
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
-export const Form = () => {
+export const Form = ({currentId}) => {
     const [files,setfiles]=useState([])
     const ref = useRef(null)
     const [image,setImage]=useState({
@@ -43,14 +43,16 @@ export const Form = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         console.log(image)
-
+    
         const formToSubmit=new FormData()
         formToSubmit.append("file",image.file)
         formToSubmit.append("name",image.name)
          formToSubmit.append("description",image.description)
          formToSubmit.append("date",image.date)
-        dispatch(addTask(formToSubmit))
-        
+         
+         if(currentId){
+             dispatch(updateTask(currentId,formToSubmit))
+        } else dispatch(addTask(formToSubmit))
     }
     
     return (

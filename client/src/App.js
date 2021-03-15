@@ -10,7 +10,7 @@ import axios from 'axios'
 function App() {
 
   const dispatch = useDispatch()
-   const [currentId, setcurrentId] = useState(null)
+   const [currentId, setCurrentId] = useState(null)
   const fecththem=async()=>{
     const {data}= await axios.get("http://localhost:5000/api/getImage")
     
@@ -24,7 +24,7 @@ function App() {
       <div className="row">
          <div className="col-8">
 
-           <Tasks currentId={currentId} setcurrentId={currentId}/>
+           <Tasks currentId={currentId} setCurrentId={setCurrentId}/>
          </div>
            
          <div className="col-4">

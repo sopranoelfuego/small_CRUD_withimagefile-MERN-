@@ -6,5 +6,5 @@ const url="http://localhost:5000/api"
 
 const getAllTasks=()=>axios.get(`${url}/getImage`)
 const createTask=(dataTosubmit)=> axios.post(`${url}/addImage`,dataTosubmit).then(res => res.data)
-
-export {getAllTasks,createTask}
+const updatetask=(id,dataTosubmit)=>axios.patch(`${url}/${id}`.dataTosubmit)
+export {getAllTasks,createTask,updatetask}

@@ -4,7 +4,7 @@ import {IconButton} from "@material-ui/core"
 import React ,{useEffect,useState}from 'react'
 
 import "./task.css"
-export const Task = ({image}) => {
+export const Task = ({image,currentId,setCurrentId}) => {
  
    const {_id,name,description,date,file}= image
    const [imageFile, setImage] = useState("")
@@ -31,7 +31,7 @@ export const Task = ({image}) => {
         <div className="task__container">
             
             <img src={imageFile} alt="this is image" className="task__img"/>
-              <IconButton className="more__button" onClick={()=>console.log("am clicked..")}>
+              <IconButton className="more__button" onClick={()=>setCurrentId(_id)}>
                   <MoreHorizIcon/>
               </IconButton>
             <div className="text__container">

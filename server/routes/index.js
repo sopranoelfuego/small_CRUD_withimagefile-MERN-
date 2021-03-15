@@ -6,7 +6,7 @@ const {allTasks,addImage}=require('../controller/task')
 
 const storage = multer.diskStorage({
     destination: function (req, res, cb) {
-        cb(null, './server/uploads/')
+        cb(null, '../uploads/')
     }
 });
 const upload=multer({storage})

@@ -4,12 +4,12 @@ const fs =require('fs')
 
 
 
-const storage=multer.diskStorage({
-    destination: function (req, res, cb) {
-        cb(null, './server/uploads/')
+// const storage=multer.diskStorage({
+//     destination: function (req, res, cb) {
+//         cb(null, 'uploads/')
         
-    }
-})
+//     }
+// })
 const addImage=async(req,res)=>{
     const image=new Img()
     const {name,description,date}=req.body

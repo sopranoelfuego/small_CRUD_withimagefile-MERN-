@@ -1,10 +1,12 @@
 import { common } from '@material-ui/core/colors'
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import {IconButton} from "@material-ui/core"
 import React ,{useEffect,useState}from 'react'
 
 import "./task.css"
 export const Task = ({image}) => {
  
-   const {_id,name,file}= image
+   const {_id,name,description,date,file}= image
    const [imageFile, setImage] = useState("")
 //    THIS FUNCTION TRY TO DECODE THE BUFFER DATA INTO A HEXDECIMAL STRING
    const arrayBufferToBase64=(buffer) =>{
@@ -29,9 +31,15 @@ export const Task = ({image}) => {
         <div className="task__container">
             
             <img src={imageFile} alt="this is image" className="task__img"/>
-            <div>
+              <IconButton className="more__button" onClick={()=>console.log("am clicked..")}>
+                  <MoreHorizIcon/>
+              </IconButton>
+            <div className="text__container">
             <h4>{name}</h4>
+             <small style={{color:"grey"}}>{date}</small>
+             <p>{description}</p>
             </div>
+
             
         </div>
     )
